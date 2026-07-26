@@ -264,6 +264,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 const waMessage = `AMF Studio - New Booking Request\n\nA new booking has been submitted.\n\nCustomer Details\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nLocation: ${location}\n\nService: ${category}\nPreferred Date: ${date}\nPreferred Time: ${slot}\n\nMessage: ${details}`;
                 const waUrl = `https://wa.me/916379776173?text=${encodeURIComponent(waMessage)}`;
 
+                // Save to PostgreSQL backend
+                const newBooking = {
+                    name,
+                    email,
+                    phone,
+                    location,
+                    category,
+                    date,
+                    slot,
+                    details
+                };
+                
+                fetch('http://localhost:3000/api/bookings', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newBooking)
+                })
+                .then(res => res.json())
+                .then(data => console.log('Booking saved to DB:', data))
+                .catch(err => console.error("Error saving booking to DB:", err));
+
                 setTimeout(() => {
                     submitBtn.innerHTML = 'Redirecting to WhatsApp... <i class="fa-brands fa-whatsapp"></i>';
                     submitBtn.style.background = '#25D366';
