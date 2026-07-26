@@ -11,17 +11,16 @@ app.use(express.json());
 // Neon PostgreSQL connection string
 const connectionString = 'postgresql://neondb_owner:npg_nF91jOqDAbtm@ep-green-dew-ax60ger0.c-4.us-east-2.aws.neon.tech/neondb?sslmode=require';
 
-const client = new Pool({
+const pool = new Pool({
     connectionString: connectionString,
 });
 
-client.on('error', (err, client) => {
+pool.on('error', (err, client) => {
     console.error('Unexpected error on idle client', err);
 });
 
 async function initDB() {
     try {
-        await client.connect();
         console.log("Connected to PostgreSQL database!");
         
         // Create table if it doesn't exist
@@ -39,7 +38,7 @@ async function initDB() {
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
         `;
-        await client.query(createTableQuery);
+        await pool.query(createTableQuery);
         console.log("Bookings table verified/created.");
     } catch (err) {
         console.error("Database connection error:", err);
@@ -60,7 +59,7 @@ app.post('/api/bookings', async (req, res) => {
         `;
         
         const values = [name, email, phone, location, category, date, slot, details];
-        const result = await client.query(insertQuery, values);
+        const result = await pool.query(insertQuery, values);
         
         res.status(201).json({ success: true, booking: result.rows[0] });
     } catch (err) {
@@ -72,7 +71,7 @@ app.post('/api/bookings', async (req, res) => {
 // API Endpoint to get all bookings for Admin page
 app.get('/api/bookings', async (req, res) => {
     try {
-        const result = await client.query('SELECT * FROM bookings ORDER BY created_at DESC');
+        const result = await pool.query('SELECT * FROM bookings ORDER BY created_at DESC');
         res.status(200).json(result.rows);
     } catch (err) {
         console.error("Error fetching bookings:", err);
@@ -84,7 +83,7 @@ app.get('/api/bookings', async (req, res) => {
 app.delete('/api/bookings/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        await client.query('DELETE FROM bookings WHERE id = $1', [id]);
+        await pool.query('DELETE FROM bookings WHERE id = $1', [id]);
         res.status(200).json({ success: true });
     } catch (err) {
         console.error("Error deleting booking:", err);
