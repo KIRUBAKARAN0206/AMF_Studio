@@ -276,7 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     details
                 };
                 
-                fetch('/api/bookings', {
+                // Send data to backend
+                fetch('https://amk-studio-qbbn.onrender.com/api/bookings', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(newBooking)
