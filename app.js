@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     details
                 };
                 
-                fetch('http://localhost:3000/api/bookings', {
+                fetch('/api/bookings', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(newBooking)

@@ -3,6 +3,11 @@ import { defineConfig } from 'vite';
 import viteCompression from 'vite-plugin-compression';
 
 export default defineConfig({
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
+  },
   build: {
     cssCodeSplit: true,
     sourcemap: false,
@@ -16,7 +21,8 @@ export default defineConfig({
         services: resolve(__dirname, 'services.html'),
         portfolio: resolve(__dirname, 'portfolio.html'),
         contact: resolve(__dirname, 'contact.html'),
-        booking: resolve(__dirname, 'booking.html')
+        booking: resolve(__dirname, 'booking.html'),
+        admin: resolve(__dirname, 'admin.html')
       },
       output: {
         manualChunks(id) {
