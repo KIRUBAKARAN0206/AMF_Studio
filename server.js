@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
@@ -12,8 +13,8 @@ app.use(express.json());
 // Serve the Vite static files from the 'dist' directory
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// Neon PostgreSQL connection string
-const connectionString = 'postgresql://neondb_owner:npg_nF91jOqDAbtm@ep-green-dew-ax60ger0.c-4.us-east-2.aws.neon.tech/neondb?sslmode=require';
+// Neon PostgreSQL connection string from environment variable or fallback
+const connectionString = process.env.DATABASE_URL || 'postgresql://neondb_owner:npg_nF91jOqDAbtm@ep-green-dew-ax60ger0.c-4.us-east-2.aws.neon.tech/neondb?sslmode=require';
 
 const pool = new Pool({
     connectionString: connectionString,
