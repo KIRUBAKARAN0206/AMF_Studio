@@ -8,4 +8,4 @@ Disallow: /netlify.toml
 Disallow: /vite.config.js
 Disallow: /*.py$
 
-Sitemap: https://amfstudio.com/sitemap.xml
+Sitemap: https://amfstudio.in/sitemap.xml
