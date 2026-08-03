@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /server.js
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /netlify.toml
+Disallow: /vite.config.js
+Disallow: /*.py$
+
+Sitemap: https://amfstudio.com/sitemap.xml
