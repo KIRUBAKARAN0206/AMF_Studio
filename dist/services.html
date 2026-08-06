@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore professional photography, videography, audio production, and editing services at AMF Studio.">
+    <title>Services | AMF Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+    <meta name="google-site-verification" content="nENDPFyJ0hH978x9MThDZfYaYanw3JB3Xbrb7FQ0G4s" />
+  <script type="module" crossorigin src="/assets/app-WRuImn2T.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/services-By5Uqm_R.css">
+  <link rel="stylesheet" crossorigin href="/assets/style-B1kBirhZ.css">
+</head>
+<body class="services-layout">
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="/assets/logo-DbvTy0tq.webp" alt="AMF Studio Logo" class="preloader-logo" width="160" height="50">
+        <div class="preloader-text">AMF <span>STUDIO</span></div>
+    </div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="/assets/logo-DbvTy0tq.webp" alt="AMF Studio Logo" style="height: 50px; width: auto; filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.45));" width="160" height="50">
+                AMF <span>STUDIO</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="mobile-only-link"><a href="booking.html" style="color: var(--accent-primary); font-weight: 700;">Book Session</a></li>
+                </ul>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <a href="admin.html" style="color: var(--text-muted); font-size: 1.3rem; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-muted)'" title="Admin Portal">
+                    <i class="fa-solid fa-user-shield"></i>
+                </a>
+                <a href="booking.html" class="nav-btn">Book Session</a>
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1 class="page-banner-title">Our Services</h1>
+        <p class="page-banner-desc">Explore the creative capabilities we bring to the table to elevate your brand and content.</p>
+    </section>
+
+    <!-- Luxury Minimalist Services Section -->
+    <section class="luxury-services-section">
+        <div class="luxury-container">
+            <div class="luxury-grid">
+                
+                <!-- Service 1: Brand Ad Shoot -->
+                <div class="luxury-card" style="--accent: #ff007f;" onclick="openServiceModal('brand-ad')">
+                    <div class="luxury-card-bg" style="background-image: url('/assets/brand-1-B2kOk89q.webp');"></div>
+                    <div class="luxury-card-content">
+                        <div class="luxury-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                        <h2 class="luxury-title">Brand Ad Shoot</h2>
+                        <p class="luxury-desc" style="color: rgba(255,255,255,0.9);">High-converting commercials & reels tailored for modern brands.</p>
+                        <div class="luxury-btn-wrapper">
+                            <span class="luxury-btn-text">Explore Packages <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2: Event -->
+                <div class="luxury-card" style="--accent: #D4AF37;" onclick="openServiceModal('event')">
+                    <div class="luxury-card-bg" style="background-image: url('/assets/event-bg-_quc2tsU.webp');"></div>
+                    <div class="luxury-card-content">
+                        <div class="luxury-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                        <h2 class="luxury-title">Event</h2>
+                        <p class="luxury-desc" style="color: rgba(255,255,255,0.9);">Comprehensive visual coverage for high-profile live events & concerts.</p>
+                        <div class="luxury-btn-wrapper">
+                            <span class="luxury-btn-text">Explore Packages <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: Wedding Function -->
+                <div class="luxury-card" style="--accent: #00e5ff;" onclick="openServiceModal('wedding')">
+                    <div class="luxury-card-bg" style="background-image: url('/assets/wedding-1-Ch9UlYvm.webp');"></div>
+                    <div class="luxury-card-content">
+                        <div class="luxury-icon"><i class="fa-solid fa-ring"></i></div>
+                        <h2 class="luxury-title">Wedding</h2>
+                        <p class="luxury-desc" style="color: rgba(255,255,255,0.9);">Cinematic wedding coverage framing memories you'll cherish forever.</p>
+                        <div class="luxury-btn-wrapper">
+                            <span class="luxury-btn-text">Explore Packages <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 4: Flex -->
+                <div class="luxury-card" style="--accent: #a855f7;" onclick="openServiceModal('flex')">
+                    <div class="luxury-card-bg" style="background-image: url('/assets/flex_bg-DCE3cKJS.png'); background-position: center; background-size: cover;"></div>
+                    <div class="luxury-card-content">
+                        <div class="luxury-icon"><i class="fa-solid fa-print"></i></div>
+                        <h2 class="luxury-title">Flex Printing</h2>
+                        <p class="luxury-desc" style="color: rgba(255,255,255,0.9);">High-quality custom flex designs and prints for all your advertising needs.</p>
+                        <div class="luxury-btn-wrapper">
+                            <span class="luxury-btn-text">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5: Frames -->
+                <div class="luxury-card" style="--accent: #10b981;" onclick="openServiceModal('frames')">
+                    <div class="luxury-card-bg" style="background-image: url('/assets/frames_bg-BwoK8-P4.png'); background-position: center; background-size: cover;"></div>
+                    <div class="luxury-card-content">
+                        <div class="luxury-icon"><i class="fa-solid fa-image"></i></div>
+                        <h2 class="luxury-title">Photo Frames</h2>
+                        <p class="luxury-desc" style="color: rgba(255,255,255,0.9);">Premium custom frames to beautifully preserve your most cherished memories.</p>
+                        <div class="luxury-btn-wrapper">
+                            <span class="luxury-btn-text">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details Modal -->
+    <div id="serviceModal" class="booking-success-modal">
+        <div class="modal-card" style="max-width: 950px; max-height: 90vh; overflow-y: auto; overflow-x: hidden; text-align: left; position: relative; padding: 40px 30px;">
+            <button id="closeServiceModal" style="position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 2rem; color: var(--text-muted); cursor: pointer; transition: color 0.3s; z-index: 10;">&times;</button>
+            <div id="modal-content" style="text-align: center;"></div>
+            <div style="margin-top: 35px; text-align: center;">
+                <a href="booking.html" class="btn-primary" style="display: inline-block;">Book This Service</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <img src="/assets/logo-DbvTy0tq.webp" alt="AMF Studio Logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.35));" width="160" height="50">
+                    AMF <span>STUDIO</span>
+                </a>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Premium social media marketing, strategy planning, creative reels development, and market research solutions.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="services.html">Brand Ad Shoot</a></li>
+                    <li><a href="services.html">Event Coverage</a></li>
+                    <li><a href="services.html">Wedding Function</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91 63797 76173</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>officialamfstudio@gmail.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>30/2A Fine Center, Second East Main Road , Anna Nagar, Near by Ambiga College, Madurai-20.</span>
+                </div>
+            </div>
+        </div>
+                <div class="footer-booking-btn" style="text-align: center; margin-bottom: 25px; width: 100%;">
+            <a href="booking.html" class="btn-primary" style="display: inline-block;">Book Session</a>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 AMF Studio. All rights reserved.</p>
+                        <div class="footer-socials">
+                <a href="https://wa.me/916379776173" class="social-icon" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://instagram.com/amf_studio_" class="social-icon" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+</body>
+</html>
+

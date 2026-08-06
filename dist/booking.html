@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pre-book your social media marketing or content production session at AMF Studio.">
+    <title>AMF Studio | Book Session</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+    <meta name="google-site-verification" content="nENDPFyJ0hH978x9MThDZfYaYanw3JB3Xbrb7FQ0G4s" />
+  <script type="module" crossorigin src="/assets/app-WRuImn2T.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/style-B1kBirhZ.css">
+</head>
+<body class="contact-layout">
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="/assets/logo-DbvTy0tq.webp" alt="AMF Studio Logo" class="preloader-logo" width="160" height="50">
+        <div class="preloader-text">AMF <span>STUDIO</span></div>
+    </div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="/assets/logo-DbvTy0tq.webp" alt="AMF Studio Logo" style="height: 50px; width: auto; filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.45));" width="160" height="50">
+                AMF <span>STUDIO</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="mobile-only-link"><a href="booking.html" style="color: var(--accent-primary); font-weight: 700;">Book Session</a></li>
+                </ul>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <a href="admin.html" style="color: var(--text-muted); font-size: 1.3rem; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-muted)'" title="Admin Portal">
+                    <i class="fa-solid fa-user-shield"></i>
+                </a>
+                <a href="booking.html" class="nav-btn">Book Session</a>
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1 class="page-banner-title">AMF Studio</h1>
+        <p class="page-banner-desc">Book Your Session</p>
+    </section>
+
+    <!-- Pre-Booking Form Section -->
+    <section class="contact">
+        <div class="contact-container reveal" style="grid-template-columns: 1fr; max-width: 800px;">
+            <div class="contact-form-wrapper">
+                <form id="bookingForm" class="contact-form" autocomplete="off">
+                    <div class="form-group-row" style="animation-delay: 0.15s;">
+                        <div class="form-group">
+                            <input type="text" id="booking-name" class="form-input" placeholder=" " required>
+                            <label for="booking-name" class="form-label">Full Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="booking-email" class="form-input" placeholder=" " required>
+                            <label for="booking-email" class="form-label">Email Address</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group-row" style="animation-delay: 0.3s;">
+                        <div class="form-group">
+                            <input type="tel" id="booking-phone" class="form-input" placeholder=" " required>
+                            <label for="booking-phone" class="form-label">Phone Number</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="booking-category" class="form-input" style="background: rgba(10, 8, 19, 0.9); color: #FFF; height: 58px;" required>
+                                <option value="" disabled selected hidden>Select Service Category</option>
+                                <option value="brand-ad">Brand Ad Shoot</option>
+                                <option value="event">Event Coverage</option>
+                                <option value="wedding">Wedding Function</option>
+                                <option value="flex">Flex Printing</option>
+                                <option value="frames">Photo Frames</option>
+                                <option value="others">Others</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Hidden field for 'Brand Ad Shoot' items -->
+                    <div class="form-group-row" id="brand-ad-category-row" style="display: none; animation-delay: 0.35s;">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <select id="booking-brand-ad-item" class="form-input" style="background: rgba(10, 8, 19, 0.9); color: #FFF; height: 58px;">
+                                <option value="" disabled selected hidden>Select Commercial Shoot Type</option>
+                                <option value="Product Photography">Product Photography</option>
+                                <option value="Food Photography">Food Photography</option>
+                                <option value="Jewellery Photography">Jewellery Photography</option>
+                                <option value="Clothing Brand Shoot">Clothing Brand Shoot</option>
+                                <option value="E-commerce Photography">E-commerce Photography</option>
+                                <option value="Real Estate Photography">Real Estate Photography</option>
+                                <option value="Hotel & Resort Photography">Hotel & Resort Photography</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Hidden field for 'Event Coverage' items -->
+                    <div class="form-group-row" id="event-category-row" style="display: none; animation-delay: 0.35s;">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <select id="booking-event-item" class="form-input" style="background: rgba(10, 8, 19, 0.9); color: #FFF; height: 58px;">
+                                <option value="" disabled selected hidden>Select Event Type</option>
+                                <option value="Baby Shower">Baby Shower</option>
+                                <option value="Puberty Function">Puberty Function</option>
+                                <option value="Ear Piercing Ceremony">Ear Piercing Ceremony</option>
+                                <option value="Housewarming">Housewarming</option>
+                                <option value="Naming Ceremony">Naming Ceremony</option>
+                                <option value="Anniversary">Anniversary</option>
+                                <option value="Birthday Party">Birthday Party</option>
+                                <option value="Corporate Events">Corporate Events</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Hidden field for 'Others' -->
+                    <div class="form-group-row" id="other-category-row" style="display: none; animation-delay: 0.35s;">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <input type="text" id="booking-other-category" class="form-input" placeholder=" ">
+                            <label for="booking-other-category" class="form-label">Please specify the service</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group-row" style="animation-delay: 0.4s;">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <input type="text" id="booking-location" class="form-input" placeholder=" " required>
+                            <label for="booking-location" class="form-label">Customer Location / Venue Details</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group-row" style="animation-delay: 0.45s;">
+                        <div class="form-group">
+                            <input type="date" id="booking-date" class="form-input" required>
+                            <label for="booking-date" class="form-label" style="top: -10px; left: 12px; font-size: 0.75rem; color: var(--accent-primary); background: var(--bg-secondary); padding: 2px 8px; border-radius: 4px;">Preferred Date</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="booking-slot" class="form-input" style="background: rgba(10, 8, 19, 0.9); color: #FFF; height: 58px;" required>
+                                <option value="" disabled selected hidden>Preferred Time Slot</option>
+                                <option value="morning">Morning (09:00 AM - 01:00 PM)</option>
+                                <option value="afternoon">Afternoon (01:00 PM - 05:00 PM)</option>
+                                <option value="evening">Evening (05:00 PM - 08:00 PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="animation-delay: 0.6s;">
+                        <textarea id="booking-details" class="form-input" placeholder=" " required></textarea>
+                        <label for="booking-details" class="form-label">Project Requirements / Brand Details</label>
+                    </div>
+
+                    <button type="submit" class="btn-primary submit-btn" style="width: 100%; justify-content: center; animation-delay: 0.75s;">
+                        Confirm Pre-Booking <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <img src="/assets/logo-DbvTy0tq.webp" alt="AMF Studio Logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.35));" width="160" height="50">
+                    AMF <span>STUDIO</span>
+                </a>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Premium social media marketing, strategy planning, creative reels development, and market research solutions.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="services.html">Brand Ad Shoot</a></li>
+                    <li><a href="services.html">Event Coverage</a></li>
+                    <li><a href="services.html">Wedding Function</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91 63797 76173</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>officialamfstudio@gmail.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>30/2A Fine Center, Second East Main Road , Anna Nagar, Near by Ambiga College, Madurai-20.</span>
+                </div>
+            </div>
+        </div>
+                <div class="footer-booking-btn" style="text-align: center; margin-bottom: 25px; width: 100%;">
+            <a href="booking.html" class="btn-primary" style="display: inline-block;">Book Session</a>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 AMF Studio. All rights reserved.</p>
+                        <div class="footer-socials">
+                <a href="https://wa.me/916379776173" class="social-icon" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://instagram.com/amf_studio_" class="social-icon" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Success Modal Overlay -->
+    <div id="successModal" class="booking-success-modal">
+        <div class="modal-card">
+            <div class="success-icon-wrapper">
+                <i class="fa-solid fa-circle-check" style="font-size: 3rem; color: #10B981;"></i>
+            </div>
+            <h2 style="color: #FFF; font-size: 1.8rem; margin-bottom: 12px;">Pre-Booking Secured!</h2>
+            <p id="successModalMsg" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">Thank you! Your slot booking request has been successfully registered. Our team will contact you shortly.</p>
+            <button id="closeModalBtn" class="btn-primary" style="margin-top: 25px; padding: 12px 30px; font-weight: 600;">Back to Home</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+</body>
+</html>
+
