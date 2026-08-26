@@ -45,6 +45,15 @@ async function initDB() {
         `;
         await pool.query(createTableQuery);
         console.log("Bookings table verified/created.");
+        
+        // Create indexes for performance
+        const createIndexesQuery = `
+            CREATE INDEX IF NOT EXISTS idx_bookings_created_at ON bookings(created_at DESC);
+            CREATE INDEX IF NOT EXISTS idx_bookings_category ON bookings(category);
+            CREATE INDEX IF NOT EXISTS idx_bookings_name_email ON bookings(name, email);
+        `;
+        await pool.query(createIndexesQuery);
+        console.log("Database indexes verified/created.");
     } catch (err) {
         console.error("Database connection error:", err);
     }
@@ -73,11 +82,56 @@ app.post('/api/bookings', async (req, res) => {
     }
 });
 
-// API Endpoint to get all bookings for Admin page
+// API Endpoint to get all bookings for Admin page with pagination and filtering
 app.get('/api/bookings', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM bookings ORDER BY created_at DESC');
-        res.status(200).json(result.rows);
+        const { page = 1, limit = 20, search = '', category = '', sort = 'created_at' } = req.query;
+        
+        const offset = (page - 1) * limit;
+        let whereClauses = [];
+        let params = [];
+        let paramIndex = 1;
+
+        if (search) {
+            whereClauses.push(`(name ILIKE $${paramIndex} OR email ILIKE $${paramIndex})`);
+            params.push(`%${search}%`);
+            paramIndex++;
+        }
+
+        if (category) {
+            whereClauses.push(`category = $${paramIndex}`);
+            params.push(category);
+            paramIndex++;
+        }
+
+        const whereString = whereClauses.length > 0 ? `WHERE ${whereClauses.join(' AND ')}` : '';
+        
+        let orderByString = 'ORDER BY created_at DESC';
+        if (sort === 'booking_date') {
+            orderByString = 'ORDER BY booking_date ASC';
+        }
+
+        const countQuery = `SELECT COUNT(*) FROM bookings ${whereString}`;
+        const countResult = await pool.query(countQuery, params);
+        const totalCount = parseInt(countResult.rows[0].count, 10);
+
+        const dataQuery = `
+            SELECT * FROM bookings 
+            ${whereString} 
+            ${orderByString} 
+            LIMIT $${paramIndex} OFFSET $${paramIndex + 1}
+        `;
+        
+        const dataParams = [...params, limit, offset];
+        const result = await pool.query(dataQuery, dataParams);
+        
+        res.status(200).json({
+            success: true,
+            data: result.rows,
+            totalCount,
+            totalPages: Math.ceil(totalCount / limit),
+            currentPage: parseInt(page, 10)
+        });
     } catch (err) {
         console.error("Error fetching bookings:", err);
         res.status(500).json({ success: false, error: err.message });
