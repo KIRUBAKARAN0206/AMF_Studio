@@ -30,12 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (menuToggle && navLinksList) {
         menuToggle.addEventListener('click', () => {
-            navLinksList.classList.toggle('active');
+            const isActive = navLinksList.classList.toggle('active');
+            document.body.style.overflow = isActive ? 'hidden' : '';
             
             // Animate toggle button spans
             const spans = menuToggle.querySelectorAll('span');
             spans.forEach((span, idx) => {
-                if (navLinksList.classList.contains('active')) {
+                if (isActive) {
                     if (idx === 0) span.style.transform = 'rotate(45deg) translate(6px, 6px)';
                     if (idx === 1) span.style.opacity = '0';
                     if (idx === 2) span.style.transform = 'rotate(-45deg) translate(5px, -5px)';
@@ -45,7 +46,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+        // Close mobile nav on link click
+        const navAnchors = navLinksList.querySelectorAll('a');
+        navAnchors.forEach(anchor => {
+            anchor.addEventListener('click', () => {
+                navLinksList.classList.remove('active');
+                document.body.style.overflow = '';
+                const spans = menuToggle.querySelectorAll('span');
+                spans.forEach(span => {
+                    span.style.transform = 'none';
+                    span.style.opacity = '1';
+                });
+            });
+        });
     }
+
 
     // 2. Sticky Navbar Styling on Scroll (Optimized)
     const navbar = document.getElementById('navbar');
