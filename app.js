@@ -1,11 +1,14 @@
-// Preloader Logic
-window.addEventListener('load', () => {
+// Fast Preloader Logic for Instant Speed
+const hidePreloader = () => {
     const preloader = document.getElementById('preloader');
-    if (preloader) {
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-        }, 800); // 800ms delay to ensure the logo is visible
+    if (preloader && !preloader.classList.contains('hidden')) {
+        preloader.classList.add('hidden');
     }
+};
+
+window.addEventListener('load', hidePreloader);
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(hidePreloader, 250);
 });
 
 // Global Scroll Setup

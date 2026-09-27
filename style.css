@@ -110,13 +110,42 @@ html.lenis { height: auto; }
     border: 2px solid var(--bg-primary);
 }
 
-html, body {
+html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
     overflow-x: hidden !important;
     width: 100% !important;
     max-width: 100vw !important;
     position: relative;
     line-height: 1.6;
     background-color: var(--bg-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Force Hardware GPU Compositing Layers for Ultra-Smooth Lag-Free Performance */
+.navbar,
+.nav-links,
+.luxury-footer,
+.service-card,
+.pro-service-card,
+.luxury-card,
+.team-card,
+.gear-card,
+.portfolio-item,
+.booking-form-wrapper,
+.summary-card,
+.kpi-card,
+.admin-login-card {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform, opacity;
 }
 
 
