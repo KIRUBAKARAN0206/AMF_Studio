@@ -10,13 +10,13 @@
 .contact-hero-hub {
     position: relative;
     width: 100%;
-    min-height: 65vh;
+    min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 140px 20px 80px 20px;
-    background: url('contact-bg.webp') center/cover no-repeat;
+    padding: 150px 20px 90px 20px;
+    background: linear-gradient(180deg, rgba(11, 11, 11, 0.45) 0%, rgba(18, 14, 34, 0.8) 100%), url('contact-bg.webp') center/cover no-repeat;
 }
 
 .hero-hub-bg {
@@ -26,15 +26,16 @@
 .hero-hub-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(180deg, rgba(11, 11, 11, 0.8) 0%, rgba(18, 14, 34, 0.9) 100%);
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.12) 0%, rgba(11, 11, 11, 0.6) 80%);
     z-index: 0;
+    pointer-events: none;
 }
 
 .gold-light-sweep {
     position: absolute;
     top: 0; left: 0;
     width: 50%; height: 100%;
-    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.05), transparent);
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.08), transparent);
     transform: skewX(-20deg) translateX(-250%);
     animation: lightSweep 8s infinite ease-in-out;
     z-index: 0;
@@ -49,7 +50,7 @@
 
 .hero-hub-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 900px;
     text-align: center;
     padding: 0 20px;
@@ -61,34 +62,38 @@
     font-size: 0.85rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    padding: 6px 16px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 6px 18px;
     border-radius: 50px;
     margin-bottom: 25px;
-    background: rgba(212, 175, 55, 0.05);
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
 }
 
 .hero-hub-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-family: var(--font-heading);
     color: var(--text-light);
-    line-height: 1.1;
+    line-height: 1.15;
     margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.8);
 }
 
 .hero-hub-line {
-    width: 60px;
-    height: 2px;
+    width: 80px;
+    height: 3px;
     background: var(--primary-gold);
     margin: 0 auto 30px;
+    box-shadow: 0 0 12px var(--primary-gold);
 }
 
 .hero-hub-subtitle {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.7);
-    max-width: 600px;
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 650px;
     margin: 0 auto 40px;
-    line-height: 1.6;
+    line-height: 1.7;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9);
 }
 
 .hero-hub-actions {
@@ -146,8 +151,9 @@
    2. Main Contact Workspace
 ----------------------------------- */
 .contact-workspace-section {
-    padding: 120px 5%;
-    background: var(--bg-dark);
+    padding: 100px 5%;
+    background: linear-gradient(135deg, rgba(10, 8, 19, 0.88) 0%, rgba(18, 14, 34, 0.94) 100%), url('event-bg.webp') center/cover fixed;
+    position: relative;
 }
 
 .workspace-grid {
@@ -155,9 +161,10 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    gap: 80px;
+    gap: 60px;
     align-items: center;
 }
+
 
 .workspace-title {
     font-family: var(--font-heading);
@@ -168,11 +175,13 @@
 
 /* Form Styles */
 .premium-form-panel {
-    background: rgba(20, 20, 20, 0.6);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 50px;
-    border-radius: 12px;
+    background: rgba(18, 18, 18, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(212, 175, 55, 0.08);
+    padding: 45px 40px;
+    border-radius: 20px;
     will-change: transform;
     transform: translateZ(0);
 }
@@ -184,33 +193,35 @@
 
 .form-input-hub {
     width: 100%;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.03);
     border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
     color: var(--text-light);
-    padding: 15px 0;
+    padding: 15px 10px;
     font-size: 1.05rem;
     font-family: var(--font-body);
     transition: all 0.3s ease;
+    border-radius: 4px 4px 0 0;
 }
 
 textarea.form-input-hub {
     resize: none;
-    height: 100px;
+    height: 110px;
 }
 
 .form-input-hub:focus {
     outline: none;
     border-bottom-color: var(--primary-gold);
-    background: rgba(212, 175, 55, 0.02);
+    background: rgba(212, 175, 55, 0.05);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
 }
 
 .form-label-hub {
     position: absolute;
     top: 15px;
-    left: 0;
+    left: 10px;
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.6);
     pointer-events: none;
     transition: 0.3s ease all;
 }
@@ -218,51 +229,56 @@ textarea.form-input-hub {
 .form-input-hub:focus ~ .form-label-hub,
 .form-input-hub:not(:placeholder-shown) ~ .form-label-hub {
     top: -15px;
+    left: 0;
     font-size: 0.85rem;
     color: var(--primary-gold);
+    font-weight: 700;
 }
 
 .btn-submit-hub {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: var(--text-light);
-    color: var(--bg-dark);
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #D4AF37 0%, #F4D35E 100%);
+    color: #000000;
     border: none;
     padding: 16px 40px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     font-family: var(--font-body);
-    border-radius: 4px;
+    border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 10px;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    width: 100%;
 }
 
 .btn-submit-hub:hover {
-    background: var(--primary-gold);
     transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.65);
 }
 
 /* Vertical Timeline Info */
 .vertical-contact-flow {
     position: relative;
-    padding-left: 40px;
+    padding-left: 45px;
 }
 
 .vertical-contact-flow::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 14px;
-    width: 1px;
+    left: 16px;
+    width: 2px;
     height: 100%;
-    background: linear-gradient(to bottom, var(--primary-gold), rgba(212, 175, 55, 0.1));
+    background: linear-gradient(to bottom, var(--primary-gold), rgba(212, 175, 55, 0.15));
 }
 
 .flow-item {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 45px;
 }
 
 .flow-item:last-child {
@@ -271,33 +287,34 @@ textarea.form-input-hub {
 
 .flow-icon {
     position: absolute;
-    left: -40px;
+    left: -45px;
     top: 0;
-    width: 30px;
-    height: 30px;
-    background: var(--bg-dark);
-    border: 1px solid var(--primary-gold);
+    width: 36px;
+    height: 36px;
+    background: rgba(18, 18, 18, 0.95);
+    border: 2px solid var(--primary-gold);
     color: var(--primary-gold);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     z-index: 1;
     transform: translateX(-50%);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
 .flow-content h4 {
     color: var(--primary-gold);
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+    font-size: 1.15rem;
+    margin-bottom: 6px;
     font-family: var(--font-heading);
+    letter-spacing: 0.5px;
 }
 
 .flow-content p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
     line-height: 1.6;
 }
 
@@ -305,8 +322,8 @@ textarea.form-input-hub {
    3. Quick Contact Actions
 ----------------------------------- */
 .quick-actions-section {
-    padding: 0 5% 100px;
-    background: var(--bg-dark);
+    padding: 60px 5% 90px;
+    background: linear-gradient(180deg, rgba(18, 14, 34, 0.92) 0%, rgba(10, 8, 19, 0.96) 100%), url('services-bg.webp') center/cover fixed;
 }
 
 .quick-actions-grid {
@@ -318,21 +335,25 @@ textarea.form-input-hub {
 }
 
 .action-card {
-    background: rgba(20, 20, 20, 0.4);
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    padding: 30px;
-    border-radius: 8px;
+    background: rgba(22, 22, 22, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 30px 25px;
+    border-radius: 16px;
     text-decoration: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
 .action-card:hover {
-    background: rgba(212, 175, 55, 0.05);
+    background: rgba(212, 175, 55, 0.12);
     border-color: var(--primary-gold);
     transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
 }
 
 .action-card-inner {
@@ -342,30 +363,30 @@ textarea.form-input-hub {
 }
 
 .action-icon {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: var(--primary-gold);
 }
 
 .action-text h4 {
     color: var(--text-light);
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+    font-family: var(--font-heading);
 }
 
 .action-text p {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
 }
 
 .action-arrow {
-    color: rgba(255, 255, 255, 0.3);
+    color: var(--primary-gold);
     font-size: 1.2rem;
     transition: all 0.3s ease;
 }
 
 .action-card:hover .action-arrow {
-    color: var(--primary-gold);
-    transform: translateX(5px);
+    transform: translateX(6px);
 }
 
 /* -----------------------------------
@@ -373,14 +394,16 @@ textarea.form-input-hub {
 ----------------------------------- */
 .project-types-section {
     padding: 80px 5%;
-    background: rgba(10, 10, 10, 1);
+    background: linear-gradient(135deg, rgba(10, 8, 19, 0.95) 0%, rgba(18, 14, 34, 0.98) 100%);
     text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
 }
 
 .section-title-hub {
     font-family: var(--font-heading);
-    font-size: 2rem;
-    margin-bottom: 40px;
+    font-size: 2.2rem;
+    margin-bottom: 35px;
     color: var(--text-light);
 }
 
@@ -394,20 +417,22 @@ textarea.form-input-hub {
 }
 
 .project-chip {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.7);
-    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 12px 26px;
     border-radius: 50px;
     font-size: 0.95rem;
+    font-weight: 500;
     transition: all 0.3s ease;
     cursor: default;
 }
 
 .project-chip:hover {
     border-color: var(--primary-gold);
-    color: var(--primary-gold);
-    background: rgba(212, 175, 55, 0.05);
+    color: #000000;
+    background: var(--primary-gold);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
 }
 
 /* -----------------------------------
@@ -415,8 +440,9 @@ textarea.form-input-hub {
 ----------------------------------- */
 .split-map-section {
     padding: 100px 5%;
-    background: var(--bg-dark);
+    background: linear-gradient(180deg, rgba(10, 8, 19, 0.92) 0%, rgba(18, 14, 34, 0.96) 100%), url('portfolio-bg.webp') center/cover fixed;
 }
+
 
 .split-map-grid {
     max-width: 1300px;
