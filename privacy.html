@@ -48,18 +48,17 @@
                 </ul>
             </nav>
 
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <a href="admin.html" style="color: var(--text-muted); font-size: 1.3rem; transition: color 0.3s;" title="Admin Portal">
+            <div class="nav-header-actions" style="display: flex; align-items: center; gap: 12px;">
+                <a href="admin.html" class="admin-nav-icon" title="Admin Portal" aria-label="Admin Portal">
                     <i class="fa-solid fa-user-shield"></i>
                 </a>
-                <a href="booking.html" class="nav-btn">Book Session</a>
+                <a href="booking.html" class="nav-btn desktop-only-btn">Book Session</a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 
