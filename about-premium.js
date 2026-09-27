@@ -59,15 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 4. Scroll Reveal Animations
+    const isMobile = window.innerWidth <= 768;
     const revealElements = document.querySelectorAll('.gsap-reveal');
     revealElements.forEach(el => {
         const direction = el.dataset.direction || 'up';
         let x = 0, y = 0;
         
-        if (direction === 'up') y = 100;
-        if (direction === 'down') y = -100;
-        if (direction === 'left') x = -100;
-        if (direction === 'right') x = 100;
+        if (direction === 'up') y = 60;
+        if (direction === 'down') y = -60;
+        if (direction === 'left') x = isMobile ? 0 : -80;
+        if (direction === 'right') x = isMobile ? 0 : 80;
 
         gsap.from(el, {
             scrollTrigger: {
@@ -92,10 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 trigger: container,
                 start: "top 80%",
             },
-            y: 50,
+            y: 40,
             opacity: 0,
             duration: 0.8,
-            stagger: 0.2,
+            stagger: 0.15,
             ease: "power2.out"
         });
     });
@@ -103,19 +104,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Parallax Images
     const parallaxImages = document.querySelectorAll('.gsap-parallax');
     parallaxImages.forEach(img => {
-        gsap.to(img, {
-            scrollTrigger: {
-                trigger: img.parentElement,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1
-            },
-            y: 100, // Move image down slightly as user scrolls past
-            ease: "none"
-        });
+        if (!isMobile) {
+            gsap.to(img, {
+                scrollTrigger: {
+                    trigger: img.parentElement,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                },
+                y: 50,
+                ease: "none"
+            });
+        }
     });
-
-
 
     // 6. Workflow Timeline
     const timelineLine = document.querySelector('.timeline-line-progress');
@@ -138,9 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.from(step.querySelector('.workflow-content'), {
             scrollTrigger: {
                 trigger: step,
-                start: "top 75%"
+                start: "top 80%"
             },
-            x: isLeft ? -50 : 50,
+            x: isMobile ? 0 : (isLeft ? -40 : 40),
+            y: isMobile ? 30 : 0,
             opacity: 0,
             duration: 1,
             ease: "power3.out"
@@ -149,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.from(step.querySelector('.timeline-dot'), {
             scrollTrigger: {
                 trigger: step,
-                start: "top 75%"
+                start: "top 80%"
             },
             scale: 0,
             opacity: 0,
@@ -157,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ease: "back.out(2)"
         });
     });
+
 
     // 7. Mouse Tilt Effect for Glass Cards
     const tiltCards = document.querySelectorAll('.tilt-card');

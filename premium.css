@@ -5,8 +5,24 @@
 /* --- Custom Cursor --- */
 body.premium-page {
     background-color: #050505;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    position: relative;
 }
+
+body.premium-page *,
+.about-layout * {
+    box-sizing: border-box;
+}
+
+.about-layout section,
+.premium-page section {
+    overflow: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+}
+
 
 
 
@@ -479,20 +495,45 @@ body.premium-page {
 }
 
 @media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+
     .premium-hero {
         height: auto;
         min-height: 70vh;
-        padding: 140px 20px 60px 20px;
+        padding: 140px 16px 60px 16px;
+        overflow: hidden !important;
+    }
+
+    .story-container {
+        padding: 0 10px;
     }
 
     .why-grid { grid-template-columns: 1fr; }
     .equipment-grid { grid-template-columns: 1fr; }
     
-    .timeline-line { left: 30px; }
-    .timeline-line-progress { left: 30px; }
+    .timeline-line { left: 24px; }
+    .timeline-line-progress { left: 24px; }
     
-    .workflow-step { width: 100%; left: 0 !important; padding-left: 80px !important; padding-right: 0 !important; text-align: left !important; }
-    .timeline-dot { left: 20px !important; right: auto !important; }
+    .workflow-step { 
+        width: 100% !important; 
+        left: 0 !important; 
+        padding-left: 60px !important; 
+        padding-right: 10px !important; 
+        text-align: left !important;
+        box-sizing: border-box !important;
+    }
+
+    .workflow-content {
+        padding: 24px 20px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+    }
+
+    .timeline-dot { left: 14px !important; right: auto !important; }
 }
 
 /* Fix mobile hero heading visibility */
@@ -516,3 +557,4 @@ body.premium-page {
     -webkit-text-fill-color: #D4AF37 !important;
   }
 }
+
