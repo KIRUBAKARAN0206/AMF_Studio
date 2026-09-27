@@ -151,8 +151,8 @@
    2. Main Contact Workspace
 ----------------------------------- */
 .contact-workspace-section {
-    padding: 100px 5%;
-    background: linear-gradient(135deg, rgba(10, 8, 19, 0.88) 0%, rgba(18, 14, 34, 0.94) 100%), url('event-bg.webp') center/cover fixed;
+    padding: 70px 5%;
+    background: linear-gradient(135deg, rgba(10, 8, 19, 0.92) 0%, rgba(18, 14, 34, 0.96) 100%), url('event-bg.webp') center/cover no-repeat;
     position: relative;
 }
 
@@ -160,35 +160,32 @@
     max-width: 1300px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 60px;
-    align-items: center;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: stretch;
 }
-
 
 .workspace-title {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
     color: var(--text-light);
 }
 
 /* Form Styles */
 .premium-form-panel {
-    background: rgba(18, 18, 18, 0.82);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(212, 175, 55, 0.35);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(212, 175, 55, 0.08);
-    padding: 45px 40px;
-    border-radius: 20px;
-    will-change: transform;
-    transform: translateZ(0);
+    background: rgba(18, 18, 18, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    padding: 35px 30px;
+    border-radius: 16px;
 }
 
 .form-group-hub {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .form-input-hub {
@@ -197,40 +194,39 @@
     border: none;
     border-bottom: 2px solid rgba(255, 255, 255, 0.15);
     color: var(--text-light);
-    padding: 15px 10px;
-    font-size: 1.05rem;
+    padding: 14px 10px;
+    font-size: 1rem;
     font-family: var(--font-body);
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease;
     border-radius: 4px 4px 0 0;
 }
 
 textarea.form-input-hub {
     resize: none;
-    height: 110px;
+    height: 95px;
 }
 
 .form-input-hub:focus {
     outline: none;
     border-bottom-color: var(--primary-gold);
     background: rgba(212, 175, 55, 0.05);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
 }
 
 .form-label-hub {
     position: absolute;
-    top: 15px;
+    top: 14px;
     left: 10px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.6);
     pointer-events: none;
-    transition: 0.3s ease all;
+    transition: 0.25s ease all;
 }
 
 .form-input-hub:focus ~ .form-label-hub,
 .form-input-hub:not(:placeholder-shown) ~ .form-label-hub {
-    top: -15px;
+    top: -14px;
     left: 0;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--primary-gold);
     font-weight: 700;
 }
@@ -239,25 +235,25 @@ textarea.form-input-hub {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     background: linear-gradient(135deg, #D4AF37 0%, #F4D35E 100%);
     color: #000000;
     border: none;
-    padding: 16px 40px;
+    padding: 15px 36px;
     font-size: 1rem;
     font-weight: 700;
     font-family: var(--font-body);
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 5px;
+    box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
     width: 100%;
 }
 
 .btn-submit-hub:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.65);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.55);
 }
 
 /* Vertical Timeline Info */
@@ -278,7 +274,7 @@ textarea.form-input-hub {
 
 .flow-item {
     position: relative;
-    margin-bottom: 45px;
+    margin-bottom: 35px;
 }
 
 .flow-item:last-child {
@@ -289,8 +285,8 @@ textarea.form-input-hub {
     position: absolute;
     left: -45px;
     top: 0;
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     background: rgba(18, 18, 18, 0.95);
     border: 2px solid var(--primary-gold);
     color: var(--primary-gold);
@@ -298,32 +294,31 @@ textarea.form-input-hub {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     z-index: 1;
     transform: translateX(-50%);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 .flow-content h4 {
     color: var(--primary-gold);
-    font-size: 1.15rem;
-    margin-bottom: 6px;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
     font-family: var(--font-heading);
-    letter-spacing: 0.5px;
 }
 
 .flow-content p {
     color: rgba(255, 255, 255, 0.85);
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 /* -----------------------------------
    3. Quick Contact Actions
 ----------------------------------- */
 .quick-actions-section {
-    padding: 60px 5% 90px;
-    background: linear-gradient(180deg, rgba(18, 14, 34, 0.92) 0%, rgba(10, 8, 19, 0.96) 100%), url('services-bg.webp') center/cover fixed;
+    padding: 40px 5% 60px;
+    background: linear-gradient(180deg, rgba(18, 14, 34, 0.92) 0%, rgba(10, 8, 19, 0.96) 100%), url('services-bg.webp') center/cover no-repeat;
 }
 
 .quick-actions-grid {
@@ -331,70 +326,69 @@ textarea.form-input-hub {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 24px;
 }
 
 .action-card {
-    background: rgba(22, 22, 22, 0.8);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 30px 25px;
-    border-radius: 16px;
+    background: rgba(22, 22, 22, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 24px 20px;
+    border-radius: 14px;
     text-decoration: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
 }
 
 .action-card:hover {
     background: rgba(212, 175, 55, 0.12);
     border-color: var(--primary-gold);
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
+    transform: translateY(-3px);
 }
 
 .action-card-inner {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
 }
 
 .action-icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--primary-gold);
 }
 
 .action-text h4 {
     color: var(--text-light);
-    font-size: 1.15rem;
-    margin-bottom: 4px;
+    font-size: 1.1rem;
+    margin-bottom: 3px;
     font-family: var(--font-heading);
 }
 
 .action-text p {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
 }
 
 .action-arrow {
     color: var(--primary-gold);
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
 }
 
 .action-card:hover .action-arrow {
-    transform: translateX(6px);
+    transform: translateX(5px);
 }
 
 /* -----------------------------------
    4. Project Types Section
 ----------------------------------- */
 .project-types-section {
-    padding: 80px 5%;
-    background: linear-gradient(135deg, rgba(10, 8, 19, 0.95) 0%, rgba(18, 14, 34, 0.98) 100%);
+    padding: 50px 5%;
+    background: linear-gradient(135deg, rgba(10, 8, 19, 0.96) 0%, rgba(18, 14, 34, 0.98) 100%);
     text-align: center;
     border-top: 1px solid rgba(212, 175, 55, 0.15);
     border-bottom: 1px solid rgba(212, 175, 55, 0.15);
@@ -402,8 +396,8 @@ textarea.form-input-hub {
 
 .section-title-hub {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
-    margin-bottom: 35px;
+    font-size: 1.9rem;
+    margin-bottom: 25px;
     color: var(--text-light);
 }
 
@@ -412,7 +406,7 @@ textarea.form-input-hub {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 12px;
     justify-content: center;
 }
 
@@ -420,11 +414,11 @@ textarea.form-input-hub {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(212, 175, 55, 0.3);
     color: rgba(255, 255, 255, 0.9);
-    padding: 12px 26px;
+    padding: 10px 22px;
     border-radius: 50px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     cursor: default;
 }
 
@@ -432,69 +426,64 @@ textarea.form-input-hub {
     border-color: var(--primary-gold);
     color: #000000;
     background: var(--primary-gold);
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
 }
 
 /* -----------------------------------
    5. Split Map Section
 ----------------------------------- */
 .split-map-section {
-    padding: 100px 5%;
-    background: linear-gradient(180deg, rgba(10, 8, 19, 0.92) 0%, rgba(18, 14, 34, 0.96) 100%), url('portfolio-bg.webp') center/cover fixed;
+    padding: 60px 5%;
+    background: linear-gradient(180deg, rgba(10, 8, 19, 0.94) 0%, rgba(18, 14, 34, 0.96) 100%), url('portfolio-bg.webp') center/cover no-repeat;
 }
-
 
 .split-map-grid {
     max-width: 1300px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
-    gap: 60px;
+    gap: 40px;
     align-items: center;
 }
 
 .map-info {
-    padding-right: 40px;
+    padding-right: 20px;
 }
 
 .map-title {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.9rem;
     color: var(--primary-gold);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .map-address, .map-hours {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
 .map-frame {
     width: 100%;
-    height: 450px;
-    border-radius: 12px;
+    height: 380px;
+    border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .map-frame iframe {
     width: 100%;
     height: 100%;
     border: none;
-    filter: invert(90%) hue-rotate(180deg) contrast(80%);
-    will-change: transform, filter;
-    transform: translateZ(0);
 }
 
 /* -----------------------------------
    6. Trust Strip
 ----------------------------------- */
 .trust-strip-section {
-    padding: 60px 5%;
-    background: rgba(15, 15, 15, 1);
+    padding: 40px 5%;
+    background: rgba(12, 12, 12, 1);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -506,21 +495,21 @@ textarea.form-input-hub {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
 }
 
 .trust-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.95rem;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
 .trust-item i {
     color: var(--primary-gold);
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 /* -----------------------------------
@@ -528,20 +517,14 @@ textarea.form-input-hub {
 ----------------------------------- */
 .final-cta-hub {
     position: relative;
-    padding: 120px 5%;
+    padding: 70px 5%;
     background: var(--bg-dark);
     text-align: center;
     overflow: hidden;
 }
 
 .cta-hub-bg {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
-    z-index: 0;
-    pointer-events: none;
+    display: none;
 }
 
 .cta-hub-content {
@@ -553,33 +536,33 @@ textarea.form-input-hub {
 
 .cta-hub-content h2 {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
     color: var(--text-light);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .cta-hub-content p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.1rem;
-    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.05rem;
+    margin-bottom: 30px;
 }
 
 .cta-hub-actions {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 16px;
 }
 
-/* Responsive */
+/* Responsive adjustments */
 @media (max-width: 1024px) {
     .workspace-grid {
         grid-template-columns: 1fr;
-        gap: 60px;
+        gap: 35px;
     }
     
     .workspace-right {
-        order: -1; /* Move info above form on tablet/mobile */
-        padding-bottom: 40px;
+        order: -1;
+        padding-bottom: 25px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -589,6 +572,7 @@ textarea.form-input-hub {
 
     .split-map-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
     
     .map-info {
@@ -598,37 +582,71 @@ textarea.form-input-hub {
 }
 
 @media (max-width: 768px) {
+    .contact-hero-hub {
+        padding: 110px 16px 50px 16px;
+        min-height: 55vh;
+    }
+
+    .contact-workspace-section {
+        padding: 35px 16px;
+    }
+
+    .premium-form-panel {
+        padding: 25px 18px;
+        border-radius: 14px;
+        height: auto !important;
+    }
+
+    .quick-actions-section {
+        padding: 25px 16px 40px;
+    }
+
+    .quick-actions-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .project-types-section {
+        padding: 35px 16px;
+    }
+
+    .split-map-section {
+        padding: 35px 16px;
+    }
+
+    .map-frame {
+        height: 300px;
+    }
+
+    .final-cta-hub {
+        padding: 45px 16px;
+    }
+
     .hero-hub-actions, .cta-hub-actions {
         display: flex;
         flex-direction: row;
-        gap: 12px;
+        gap: 10px;
         justify-content: center;
         align-items: center;
         width: 100%;
-        max-width: 420px;
+        max-width: 400px;
         margin: 0 auto;
     }
 
     .btn-premium-hub, .btn-outline-hub {
         flex: 1;
         width: auto;
-        padding: 14px 20px;
-        font-size: 0.9rem;
+        padding: 12px 16px;
+        font-size: 0.88rem;
         font-weight: 700;
         line-height: 1.3;
         border-radius: 50px !important;
         text-align: center;
     }
 
-    .quick-actions-grid {
-        grid-template-columns: 1fr;
-    }
-
     .trust-strip {
         justify-content: center;
-    }
-    
-    .premium-form-panel {
-        padding: 30px 20px;
+        gap: 12px;
     }
 }
+
