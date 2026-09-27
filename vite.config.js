@@ -22,7 +22,9 @@ export default defineConfig({
         portfolio: resolve(__dirname, 'portfolio.html'),
         contact: resolve(__dirname, 'contact.html'),
         booking: resolve(__dirname, 'booking.html'),
-        admin: resolve(__dirname, 'admin.html')
+        admin: resolve(__dirname, 'admin.html'),
+        privacy: resolve(__dirname, 'privacy.html'),
+        terms: resolve(__dirname, 'terms.html')
       },
       output: {
         manualChunks(id) {
