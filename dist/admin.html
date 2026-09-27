@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMF Studio | Admin Panel</title>
+    <title>AMF Studio | Admin Panel</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <style>
@@ -90,9 +90,21 @@
             background: rgba(255, 0, 127, 0.08);
             transform: scale(1.005);
         }
+        .skeleton {
+            background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.05) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 4px;
+            height: 20px;
+            width: 100%;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
     </style>
     <meta name="google-site-verification" content="nENDPFyJ0hH978x9MThDZfYaYanw3JB3Xbrb7FQ0G4s" />
-  <link rel="stylesheet" crossorigin href="/assets/style-B1kBirhZ.css">
+  <link rel="stylesheet" crossorigin href="/assets/style-rfk6roty.css">
 </head>
 <body class="home-layout">
     <!-- Header Navigation -->
@@ -129,6 +141,28 @@
             </h2>
             <button id="logoutBtn" class="btn-primary" style="padding: 10px 20px; background: transparent; border: 1px solid rgba(255,255,255,0.2);">Logout</button>
         </div>
+        
+        <div id="bookingControls" style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; background: rgba(25, 20, 35, 0.6); padding: 15px 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+            <div class="form-group" style="flex: 1; min-width: 200px; margin: 0;">
+                <input type="text" id="searchBookings" class="form-input" placeholder="Search name or email..." style="padding: 10px 15px; font-size: 0.9rem; margin-top: 0;">
+            </div>
+            <div class="form-group" style="width: auto; margin: 0;">
+                <select id="filterCategory" class="form-input" style="padding: 10px 15px; font-size: 0.9rem; appearance: auto; margin-top: 0; background-color: rgba(10,8,19,0.8);">
+                    <option value="">All Categories</option>
+                    <option value="Wedding Photography">Wedding</option>
+                    <option value="Pre-Wedding Shoot">Pre-Wedding</option>
+                    <option value="Maternity Shoot">Maternity</option>
+                    <option value="Event Photography">Event</option>
+                    <option value="Commercial Shoot">Commercial</option>
+                </select>
+            </div>
+            <div class="form-group" style="width: auto; margin: 0;">
+                <select id="sortBookings" class="form-input" style="padding: 10px 15px; font-size: 0.9rem; appearance: auto; margin-top: 0; background-color: rgba(10,8,19,0.8);">
+                    <option value="created_at">Newest First</option>
+                    <option value="booking_date">By Event Date</option>
+                </select>
+            </div>
+        </div>
         <div style="overflow-x: auto;">
             <table class="bookings-table">
                 <thead>
@@ -146,6 +180,14 @@
                 <tbody id="bookingsBody">
                 </tbody>
             </table>
+        </div>
+        
+        <div id="paginationControls" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; color: #aaa;">
+            <div id="pageInfo" style="font-size: 0.9rem;">Showing 0 records</div>
+            <div style="display: flex; gap: 10px;">
+                <button id="prevPage" class="btn-primary" style="padding: 6px 15px; font-size: 0.9rem; background: rgba(25, 20, 35, 0.8); border: 1px solid rgba(255, 0, 127, 0.3); cursor: pointer;" disabled>Prev</button>
+                <button id="nextPage" class="btn-primary" style="padding: 6px 15px; font-size: 0.9rem; background: rgba(25, 20, 35, 0.8); border: 1px solid rgba(255, 0, 127, 0.3); cursor: pointer;" disabled>Next</button>
+            </div>
         </div>
     </div>
 
@@ -178,48 +220,190 @@
             loadBookings();
         }
 
-        async function loadBookings() {
+        let adminState = {
+            page: 1,
+            limit: 20,
+            search: '',
+            category: '',
+            sort: 'created_at',
+            cache: {},
+            isFetching: false,
+            debounceTimer: null,
+            totalCount: 0,
+            totalPages: 1
+        };
+
+        const renderSkeleton = () => {
             const tbody = document.getElementById('bookingsBody');
-            tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 50px;"><i class="fa-solid fa-circle-notch fa-spin" style="font-size: 2.5rem; color: var(--accent-primary);"></i><p style="margin-top: 15px; color: #ccc; font-size: 1.1rem;">Syncing secure database...</p></td></tr>';
+            const fragment = document.createDocumentFragment();
+            for (let i = 0; i < 5; i++) {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><div class="skeleton" style="width: 80px;"></div></td>
+                    <td><div class="skeleton" style="width: 120px; margin-bottom:5px;"></div><div class="skeleton" style="width: 90px;"></div></td>
+                    <td><div class="skeleton" style="width: 100px;"></div></td>
+                    <td><div class="skeleton" style="width: 80px; height: 25px; border-radius: 4px;"></div></td>
+                    <td><div class="skeleton" style="width: 90px;"></div></td>
+                    <td><div class="skeleton" style="width: 70px;"></div></td>
+                    <td><div class="skeleton" style="width: 150px;"></div></td>
+                    <td><div class="skeleton" style="width: 32px; height: 32px; border-radius: 50%; margin: 0 auto;"></div></td>
+                `;
+                fragment.appendChild(tr);
+            }
+            tbody.innerHTML = '';
+            tbody.appendChild(fragment);
+        };
+
+        async function loadBookings(forceRefresh = false) {
+            if (adminState.isFetching) return;
+            adminState.isFetching = true;
+            
+            const cacheKey = `${adminState.page}-${adminState.search}-${adminState.category}-${adminState.sort}`;
+            
+            if (!forceRefresh && adminState.cache[cacheKey]) {
+                renderBookings(adminState.cache[cacheKey]);
+                adminState.isFetching = false;
+                return;
+            }
+
+            renderSkeleton();
+            
             try {
-                const response = await fetch('https://amk-studio-qbbn.onrender.com/api/bookings');
-                const bookings = await response.json();
+                const params = new URLSearchParams({
+                    page: adminState.page,
+                    limit: adminState.limit,
+                    search: adminState.search,
+                    category: adminState.category,
+                    sort: adminState.sort
+                });
+                const response = await fetch(`https://amk-studio-qbbn.onrender.com/api/bookings?${params.toString()}`);
+                let result = await response.json();
                 
-                tbody.innerHTML = '';
-                
-                if (bookings.length === 0) {
-                    tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 40px; color: #888; font-size: 1.1rem;">No booking requests found.</td></tr>';
-                    return;
+                // Fallback for old API response (array)
+                let bookings = [];
+                if (Array.isArray(result)) {
+                    // Client side filter/sort/pagination fallback
+                    bookings = result.filter(b => {
+                        const mSearch = !adminState.search || b.name.toLowerCase().includes(adminState.search.toLowerCase()) || b.email.toLowerCase().includes(adminState.search.toLowerCase());
+                        const mCat = !adminState.category || b.category === adminState.category;
+                        return mSearch && mCat;
+                    });
+                    bookings.sort((a,b) => {
+                        if(adminState.sort === 'created_at') return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+                        return new Date(a.booking_date).getTime() - new Date(b.booking_date).getTime();
+                    });
+                    if (adminState.sort === 'created_at') bookings.reverse(); // Newest first
+                    
+                    adminState.totalCount = bookings.length;
+                    adminState.totalPages = Math.ceil(adminState.totalCount / adminState.limit) || 1;
+                    const offset = (adminState.page - 1) * adminState.limit;
+                    bookings = bookings.slice(offset, offset + adminState.limit);
+                } else {
+                    bookings = result.data || [];
+                    adminState.totalCount = result.totalCount || 0;
+                    adminState.totalPages = result.totalPages || 1;
                 }
 
-                bookings.forEach(b => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td style="white-space: nowrap; font-size: 0.9em; color: #aaa;">${new Date(b.created_at).toLocaleString()}</td>
-                        <td><strong>${b.name}</strong><br><small style="color:#aaa;">${b.email}</small><br><small style="color:#888;">${b.location}</small></td>
-                        <td style="white-space: nowrap;">${b.phone}</td>
-                        <td><span style="background: rgba(255,0,127,0.1); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; border: 1px solid rgba(255,0,127,0.2);">${b.category}</span></td>
-                        <td style="white-space: nowrap;">${new Date(b.booking_date).toLocaleDateString()}</td>
-                        <td>${b.slot}</td>
-                        <td style="max-width: 250px; font-size: 0.9em; color: #ccc;">${b.details}</td>
-                        <td style="text-align: center;">
-                            <button onclick="deleteBooking(${b.id})" style="background: rgba(255, 77, 77, 0.1); border: 1px solid rgba(255, 77, 77, 0.3); color: #ff4d4d; cursor: pointer; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s;" onmouseover="this.style.background='rgba(255, 77, 77, 0.2)'" onmouseout="this.style.background='rgba(255, 77, 77, 0.1)'">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </td>
-                    `;
-                    tbody.appendChild(tr);
-                });
+                adminState.cache[cacheKey] = bookings;
+                renderBookings(bookings);
             } catch (err) {
                 console.error("Error loading bookings:", err);
+                document.getElementById('bookingsBody').innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 40px; color: #ff4d4d;">Failed to load data. Please try again.</td></tr>';
+            } finally {
+                adminState.isFetching = false;
             }
         }
+
+        function renderBookings(bookings) {
+            const tbody = document.getElementById('bookingsBody');
+            const fragment = document.createDocumentFragment();
+            
+            if (bookings.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 40px; color: #888; font-size: 1.1rem;">No booking requests found.</td></tr>';
+                updatePaginationUI();
+                return;
+            }
+
+            bookings.forEach(b => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="white-space: nowrap; font-size: 0.9em; color: #aaa;">${new Date(b.created_at).toLocaleString()}</td>
+                    <td><strong>${b.name}</strong><br><small style="color:#aaa;">${b.email}</small><br><small style="color:#888;">${b.location}</small></td>
+                    <td style="white-space: nowrap;">${b.phone}</td>
+                    <td><span style="background: rgba(255,0,127,0.1); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; border: 1px solid rgba(255,0,127,0.2);">${b.category}</span></td>
+                    <td style="white-space: nowrap;">${new Date(b.booking_date).toLocaleDateString()}</td>
+                    <td>${b.slot}</td>
+                    <td style="max-width: 250px; font-size: 0.9em; color: #ccc;">${b.details}</td>
+                    <td style="text-align: center;">
+                        <button onclick="deleteBooking(${b.id})" style="background: rgba(255, 77, 77, 0.1); border: 1px solid rgba(255, 77, 77, 0.3); color: #ff4d4d; cursor: pointer; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s;" onmouseover="this.style.background='rgba(255, 77, 77, 0.2)'" onmouseout="this.style.background='rgba(255, 77, 77, 0.1)'">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                `;
+                fragment.appendChild(tr);
+            });
+            tbody.innerHTML = '';
+            tbody.appendChild(fragment);
+            updatePaginationUI();
+        }
+
+        function updatePaginationUI() {
+            const pageInfo = document.getElementById('pageInfo');
+            const prevBtn = document.getElementById('prevPage');
+            const nextBtn = document.getElementById('nextPage');
+            
+            pageInfo.innerText = \`Showing page \${adminState.page} of \${adminState.totalPages} (\${adminState.totalCount} total)\`;
+            prevBtn.disabled = adminState.page <= 1;
+            nextBtn.disabled = adminState.page >= adminState.totalPages;
+            
+            prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
+            nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
+        }
+
+        document.getElementById('prevPage')?.addEventListener('click', () => {
+            if (adminState.page > 1) {
+                adminState.page--;
+                loadBookings();
+            }
+        });
+
+        document.getElementById('nextPage')?.addEventListener('click', () => {
+            if (adminState.page < adminState.totalPages) {
+                adminState.page++;
+                loadBookings();
+            }
+        });
+
+        const handleFilterChange = () => {
+            adminState.page = 1;
+            adminState.cache = {}; // Invalidate cache on filter change
+            loadBookings();
+        };
+
+        document.getElementById('searchBookings')?.addEventListener('input', (e) => {
+            clearTimeout(adminState.debounceTimer);
+            adminState.debounceTimer = setTimeout(() => {
+                adminState.search = e.target.value.trim();
+                handleFilterChange();
+            }, 300);
+        });
+
+        document.getElementById('filterCategory')?.addEventListener('change', (e) => {
+            adminState.category = e.target.value;
+            handleFilterChange();
+        });
+
+        document.getElementById('sortBookings')?.addEventListener('change', (e) => {
+            adminState.sort = e.target.value;
+            handleFilterChange();
+        });
 
         window.deleteBooking = async function(id) {
             if (confirm("Are you sure you want to delete this booking request?")) {
                 try {
-                    await fetch(`https://amk-studio-qbbn.onrender.com/api/bookings/${id}`, { method: 'DELETE' });
-                    loadBookings();
+                    await fetch(\`https://amk-studio-qbbn.onrender.com/api/bookings/\${id}\`, { method: 'DELETE' });
+                    adminState.cache = {}; // invalidate all cache
+                    loadBookings(true);
                 } catch (err) {
                     console.error("Error deleting booking:", err);
                 }
