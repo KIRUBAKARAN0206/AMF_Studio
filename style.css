@@ -1676,8 +1676,9 @@ footer {
         transform: none;
     }
 
-    /* Hide top header nav-btn on mobile so it doesn't overlap or obscure the hamburger menu toggle */
-    header .nav-btn {
+    /* Hide top header nav-btn and admin portal icon on mobile */
+    header .nav-btn,
+    header a[href="admin.html"] {
         display: none !important;
     }
 
