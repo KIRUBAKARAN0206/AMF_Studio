@@ -69,34 +69,65 @@
     </header>
 
     <!-- Page Banner -->
-    <section class="page-banner">
-        <h1 class="page-banner-title">AMF Studio</h1>
-        <p class="page-banner-desc">Book Your Session</p>
+    <section class="page-banner" style="padding: 140px 20px 60px; text-align: center; background: linear-gradient(180deg, rgba(10, 8, 20, 0.5) 0%, rgba(18, 14, 34, 0.88) 100%), url('/assets/booking-bg-DFTX4tNO.webp') center/cover no-repeat; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <span class="gold-label" style="display: inline-block; color: #D4AF37; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 18px; border-radius: 50px; margin-bottom: 20px; background: rgba(212, 175, 55, 0.1);"><i class="fa-solid fa-sparkles"></i> Studio Reservation</span>
+            <h1 class="page-banner-title" style="font-family: var(--font-heading); font-size: clamp(2.2rem, 4.5vw, 3.8rem); color: #FFF; margin-bottom: 15px; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">Book Your Creative Session</h1>
+            <p class="page-banner-desc" style="color: rgba(255, 255, 255, 0.85); font-size: 1.1rem; max-width: 650px; margin: 0 auto; line-height: 1.6;">Select your service, preferred shoot date, and time slot. Our team will verify and confirm your session within 1 hour.</p>
+        </div>
     </section>
 
     <!-- Pre-Booking Form Section -->
-    <section class="contact">
-        <div class="contact-container reveal" style="grid-template-columns: 1fr; max-width: 800px;">
-            <div class="contact-form-wrapper">
+    <section class="contact" style="padding: 60px 5% 90px; background: linear-gradient(135deg, rgba(10, 8, 19, 0.94) 0%, rgba(18, 14, 34, 0.98) 100%), url('/assets/event-bg-_quc2tsU.webp') center/cover no-repeat;">
+        <div class="booking-main-grid" style="max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: start;">
+            
+            <!-- Left Column: Form & Category Chips -->
+            <div class="booking-form-wrapper" style="background: rgba(18, 18, 18, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; padding: 40px 35px; box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+                <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: #FFF; margin-bottom: 20px;">1. Select Service Category</h2>
+                
+                <!-- Category Choice Chips -->
+                <div class="booking-category-chips" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                    <button type="button" class="booking-chip active" data-value="brand-ad" onclick="selectBookingCategory('brand-ad', this)" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 50px; background: rgba(212, 175, 55, 0.2); border: 1px solid #D4AF37; color: #F4D35E; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease;">
+                        <i class="fa-solid fa-clapperboard"></i> Brand Ad Shoot
+                    </button>
+                    <button type="button" class="booking-chip" data-value="event" onclick="selectBookingCategory('event', this)" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 50px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #FFF; font-weight: 500; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease;">
+                        <i class="fa-solid fa-camera"></i> Event Coverage
+                    </button>
+                    <button type="button" class="booking-chip" data-value="wedding" onclick="selectBookingCategory('wedding', this)" style="display: flex; align-items: gap: 8px; padding: 10px 18px; border-radius: 50px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #FFF; font-weight: 500; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease;">
+                        <i class="fa-solid fa-heart"></i> Wedding Function
+                    </button>
+                    <button type="button" class="booking-chip" data-value="flex" onclick="selectBookingCategory('flex', this)" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 50px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #FFF; font-weight: 500; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease;">
+                        <i class="fa-solid fa-image"></i> Flex Printing
+                    </button>
+                    <button type="button" class="booking-chip" data-value="frames" onclick="selectBookingCategory('frames', this)" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 50px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #FFF; font-weight: 500; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease;">
+                        <i class="fa-solid fa-frame"></i> Photo Frames
+                    </button>
+                    <button type="button" class="booking-chip" data-value="others" onclick="selectBookingCategory('others', this)" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 50px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #FFF; font-weight: 500; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease;">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Others
+                    </button>
+                </div>
+
+                <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: #FFF; margin-bottom: 20px;">2. Booking Details</h2>
+
                 <form id="bookingForm" class="contact-form" autocomplete="off">
-                    <div class="form-group-row" style="animation-delay: 0.15s;">
+                    <div class="form-group-row">
                         <div class="form-group">
-                            <input type="text" id="booking-name" class="form-input" placeholder=" " required>
+                            <input type="text" id="booking-name" class="form-input" placeholder=" " required oninput="updateBookingSummary()">
                             <label for="booking-name" class="form-label">Full Name</label>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="booking-email" class="form-input" placeholder=" " required>
+                            <input type="email" id="booking-email" class="form-input" placeholder=" " required oninput="updateBookingSummary()">
                             <label for="booking-email" class="form-label">Email Address</label>
                         </div>
                     </div>
 
-                    <div class="form-group-row" style="animation-delay: 0.3s;">
+                    <div class="form-group-row">
                         <div class="form-group">
-                            <input type="tel" id="booking-phone" class="form-input" placeholder=" " required>
+                            <input type="tel" id="booking-phone" class="form-input" placeholder=" " required oninput="updateBookingSummary()">
                             <label for="booking-phone" class="form-label">Phone Number</label>
                         </div>
                         <div class="form-group">
-                            <select id="booking-category" class="form-input" style="background: rgba(10, 8, 19, 0.9); color: #FFF; height: 58px;" required>
+                            <select id="booking-category" class="form-input" style="background: rgba(18, 18, 18, 0.95); color: #FFF; height: 58px;" required onchange="handleCategoryDropdownChange(this.value)">
                                 <option value="" disabled selected hidden>Select Service Category</option>
                                 <option value="brand-ad">Brand Ad Shoot</option>
                                 <option value="event">Event Coverage</option>
@@ -108,10 +139,10 @@
                         </div>
                     </div>
 
-                    <!-- Hidden field for 'Brand Ad Shoot' items -->
-                    <div class="form-group-row" id="brand-ad-category-row" style="display: none; animation-delay: 0.35s;">
+                    <!-- Dynamic Sub-category: Brand Ad -->
+                    <div class="form-group-row" id="brand-ad-category-row" style="display: none;">
                         <div class="form-group" style="grid-column: 1 / -1;">
-                            <select id="booking-brand-ad-item" class="form-input" style="background: rgba(10, 8, 19, 0.9); color: #FFF; height: 58px;">
+                            <select id="booking-brand-ad-item" class="form-input" style="background: rgba(18, 18, 18, 0.95); color: #FFF; height: 58px;" onchange="updateBookingSummary()">
                                 <option value="" disabled selected hidden>Select Commercial Shoot Type</option>
                                 <option value="Product Photography">Product Photography</option>
                                 <option value="Food Photography">Food Photography</option>
@@ -124,10 +155,10 @@
                         </div>
                     </div>
 
-                    <!-- Hidden field for 'Event Coverage' items -->
-                    <div class="form-group-row" id="event-category-row" style="display: none; animation-delay: 0.35s;">
+                    <!-- Dynamic Sub-category: Event Coverage -->
+                    <div class="form-group-row" id="event-category-row" style="display: none;">
                         <div class="form-group" style="grid-column: 1 / -1;">
-                            <select id="booking-event-item" class="form-input" style="background: rgba(10, 8, 19, 0.9); color: #FFF; height: 58px;">
+                            <select id="booking-event-item" class="form-input" style="background: rgba(18, 18, 18, 0.95); color: #FFF; height: 58px;" onchange="updateBookingSummary()">
                                 <option value="" disabled selected hidden>Select Event Type</option>
                                 <option value="Baby Shower">Baby Shower</option>
                                 <option value="Puberty Function">Puberty Function</option>
@@ -141,48 +172,169 @@
                         </div>
                     </div>
 
-                    <!-- Hidden field for 'Others' -->
-                    <div class="form-group-row" id="other-category-row" style="display: none; animation-delay: 0.35s;">
+                    <!-- Dynamic Sub-category: Others -->
+                    <div class="form-group-row" id="other-category-row" style="display: none;">
                         <div class="form-group" style="grid-column: 1 / -1;">
-                            <input type="text" id="booking-other-category" class="form-input" placeholder=" ">
-                            <label for="booking-other-category" class="form-label">Please specify the service</label>
+                            <input type="text" id="booking-other-category" class="form-input" placeholder=" " oninput="updateBookingSummary()">
+                            <label for="booking-other-category" class="form-label">Please specify custom requirement</label>
                         </div>
                     </div>
 
-                    <div class="form-group-row" style="animation-delay: 0.4s;">
+                    <div class="form-group-row">
                         <div class="form-group" style="grid-column: 1 / -1;">
-                            <input type="text" id="booking-location" class="form-input" placeholder=" " required>
-                            <label for="booking-location" class="form-label">Customer Location / Venue Details</label>
+                            <input type="text" id="booking-location" class="form-input" placeholder=" " required oninput="updateBookingSummary()">
+                            <label for="booking-location" class="form-label">Customer Location / Shoot Venue</label>
                         </div>
                     </div>
 
-                    <div class="form-group-row" style="animation-delay: 0.45s;">
+                    <div class="form-group-row">
                         <div class="form-group">
-                            <input type="date" id="booking-date" class="form-input" required>
-                            <label for="booking-date" class="form-label" style="top: -10px; left: 12px; font-size: 0.75rem; color: var(--accent-primary); background: var(--bg-secondary); padding: 2px 8px; border-radius: 4px;">Preferred Date</label>
+                            <input type="date" id="booking-date" class="form-input" required onchange="updateBookingSummary()">
+                            <label for="booking-date" class="form-label" style="top: -10px; left: 12px; font-size: 0.75rem; color: var(--accent-primary); background: rgba(18, 18, 18, 0.95); padding: 2px 8px; border-radius: 4px;">Preferred Shoot Date</label>
                         </div>
                         <div class="form-group">
-                            <select id="booking-slot" class="form-input" style="background: rgba(10, 8, 19, 0.9); color: #FFF; height: 58px;" required>
+                            <select id="booking-slot" class="form-input" style="background: rgba(18, 18, 18, 0.95); color: #FFF; height: 58px;" required onchange="updateBookingSummary()">
                                 <option value="" disabled selected hidden>Preferred Time Slot</option>
-                                <option value="morning">Morning (09:00 AM - 01:00 PM)</option>
-                                <option value="afternoon">Afternoon (01:00 PM - 05:00 PM)</option>
-                                <option value="evening">Evening (05:00 PM - 08:00 PM)</option>
+                                <option value="Morning (09:00 AM - 01:00 PM)">Morning (09:00 AM - 01:00 PM)</option>
+                                <option value="Afternoon (01:00 PM - 05:00 PM)">Afternoon (01:00 PM - 05:00 PM)</option>
+                                <option value="Evening (05:00 PM - 08:00 PM)">Evening (05:00 PM - 08:00 PM)</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="form-group" style="animation-delay: 0.6s;">
-                        <textarea id="booking-details" class="form-input" placeholder=" " required></textarea>
-                        <label for="booking-details" class="form-label">Project Requirements / Brand Details</label>
+                    <div class="form-group">
+                        <textarea id="booking-details" class="form-input" placeholder=" " required oninput="updateBookingSummary()" style="height: 100px;"></textarea>
+                        <label for="booking-details" class="form-label">Project Requirements / Notes</label>
                     </div>
 
-                    <button type="submit" class="btn-primary submit-btn" style="width: 100%; justify-content: center; animation-delay: 0.75s;">
-                        Confirm Pre-Booking <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    <button type="submit" class="btn-primary submit-btn" style="width: 100%; justify-content: center; background: linear-gradient(135deg, #D4AF37 0%, #F4D35E 100%); color: #000; font-weight: 800; font-size: 1.05rem; padding: 16px; border-radius: 50px; border: none; box-shadow: 0 6px 25px rgba(212,175,55,0.45); cursor: pointer; transition: all 0.3s ease;">
+                        Confirm Pre-Booking <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
                     </button>
                 </form>
             </div>
+
+            <!-- Right Column: Live Booking Summary & Studio Guarantee -->
+            <div class="booking-summary-wrapper" style="display: flex; flex-direction: column; gap: 25px;">
+                <!-- Live Summary Card -->
+                <div class="summary-card" style="background: rgba(18, 18, 18, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; padding: 35px 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+                    <h3 style="font-family: var(--font-heading); color: #D4AF37; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
+                        <span><i class="fa-solid fa-receipt"></i> Booking Summary</span>
+                        <span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.15); color: #F4D35E; padding: 4px 10px; border-radius: 50px; font-family: var(--font-body); font-weight: 600;">LIVE PREVIEW</span>
+                    </h3>
+
+                    <div class="summary-item" style="margin-bottom: 15px; display: flex; justify-content: space-between; font-size: 0.95rem;">
+                        <span style="color: rgba(255,255,255,0.6);">Service Selected:</span>
+                        <strong id="summary-category" style="color: #FFF;">Not Selected</strong>
+                    </div>
+
+                    <div class="summary-item" style="margin-bottom: 15px; display: flex; justify-content: space-between; font-size: 0.95rem;">
+                        <span style="color: rgba(255,255,255,0.6);">Client Name:</span>
+                        <strong id="summary-name" style="color: #FFF;">—</strong>
+                    </div>
+
+                    <div class="summary-item" style="margin-bottom: 15px; display: flex; justify-content: space-between; font-size: 0.95rem;">
+                        <span style="color: rgba(255,255,255,0.6);">Phone:</span>
+                        <strong id="summary-phone" style="color: #FFF;">—</strong>
+                    </div>
+
+                    <div class="summary-item" style="margin-bottom: 15px; display: flex; justify-content: space-between; font-size: 0.95rem;">
+                        <span style="color: rgba(255,255,255,0.6);">Preferred Date:</span>
+                        <strong id="summary-date" style="color: #D4AF37;">—</strong>
+                    </div>
+
+                    <div class="summary-item" style="margin-bottom: 20px; display: flex; justify-content: space-between; font-size: 0.95rem;">
+                        <span style="color: rgba(255,255,255,0.6);">Time Slot:</span>
+                        <strong id="summary-slot" style="color: #D4AF37;">—</strong>
+                    </div>
+
+                    <div style="background: rgba(212, 175, 55, 0.08); border: 1px border-dashed rgba(212, 175, 55, 0.3); border-radius: 12px; padding: 15px; text-align: center;">
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin: 0; line-height: 1.5;"><i class="fa-solid fa-shield-halved" style="color: #D4AF37;"></i> Zero upfront cancellation penalty. Our production coordinator will call to finalize package pricing.</p>
+                    </div>
+                </div>
+
+                <!-- Studio Guarantee Badges -->
+                <div class="guarantee-card" style="background: rgba(18, 18, 18, 0.85); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 30px 25px;">
+                    <h4 style="color: #FFF; font-size: 1.1rem; margin-bottom: 18px; font-family: var(--font-heading);">Why Pre-Book With AMF Studio?</h4>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div style="display: flex; gap: 12px; align-items: center;">
+                            <i class="fa-solid fa-bolt" style="color: #D4AF37; font-size: 1.2rem; width: 24px;"></i>
+                            <div>
+                                <h5 style="color: #FFF; margin: 0; font-size: 0.95rem;">1-Hour Verification Call</h5>
+                                <p style="color: rgba(255,255,255,0.6); margin: 2px 0 0 0; font-size: 0.82rem;">Direct phone confirmation & date reservation.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: center;">
+                            <i class="fa-solid fa-video" style="color: #00FF66; font-size: 1.2rem; width: 24px;"></i>
+                            <div>
+                                <h5 style="color: #FFF; margin: 0; font-size: 0.95rem;">High-End Cinema Gear</h5>
+                                <p style="color: rgba(255,255,255,0.6); margin: 2px 0 0 0; font-size: 0.82rem;">Shot on RED & Sony Cinema Line cameras.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: center;">
+                            <i class="fa-solid fa-lock" style="color: #00E5FF; font-size: 1.2rem; width: 24px;"></i>
+                            <div>
+                                <h5 style="color: #FFF; margin: 0; font-size: 0.95rem;">Private Cloud Gallery</h5>
+                                <p style="color: rgba(255,255,255,0.6); margin: 2px 0 0 0; font-size: 0.82rem;">Secure high-speed digital file delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
+
+    <script>
+    function selectBookingCategory(val, btnEl) {
+        document.querySelectorAll('.booking-chip').forEach(c => {
+            c.style.background = 'rgba(255, 255, 255, 0.05)';
+            c.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+            c.style.color = '#FFF';
+            c.classList.remove('active');
+        });
+
+        if (btnEl) {
+            btnEl.style.background = 'rgba(212, 175, 55, 0.2)';
+            btnEl.style.borderColor = '#D4AF37';
+            btnEl.style.color = '#F4D35E';
+            btnEl.classList.add('active');
+        }
+
+        const selectEl = document.getElementById('booking-category');
+        if (selectEl) {
+            selectEl.value = val;
+            handleCategoryDropdownChange(val);
+        }
+    }
+
+    function handleCategoryDropdownChange(val) {
+        document.getElementById('brand-ad-category-row').style.display = (val === 'brand-ad') ? 'block' : 'none';
+        document.getElementById('event-category-row').style.display = (val === 'event') ? 'block' : 'none';
+        document.getElementById('other-category-row').style.display = (val === 'others') ? 'block' : 'none';
+        updateBookingSummary();
+    }
+
+    function updateBookingSummary() {
+        const catSelect = document.getElementById('booking-category');
+        const nameInput = document.getElementById('booking-name');
+        const phoneInput = document.getElementById('booking-phone');
+        const dateInput = document.getElementById('booking-date');
+        const slotSelect = document.getElementById('booking-slot');
+
+        let catText = 'Not Selected';
+        if (catSelect && catSelect.value) {
+            const opt = catSelect.options[catSelect.selectedIndex];
+            catText = opt ? opt.text : catSelect.value;
+        }
+
+        document.getElementById('summary-category').innerText = catText;
+        document.getElementById('summary-name').innerText = (nameInput && nameInput.value) ? nameInput.value : '—';
+        document.getElementById('summary-phone').innerText = (phoneInput && phoneInput.value) ? phoneInput.value : '—';
+        document.getElementById('summary-date').innerText = (dateInput && dateInput.value) ? dateInput.value : '—';
+        document.getElementById('summary-slot').innerText = (slotSelect && slotSelect.value) ? slotSelect.value : '—';
+    }
+    </script>
+
 
     <!-- Footer -->
     <footer>
