@@ -1515,8 +1515,43 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 30px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.footer-copy {
+    color: var(--text-muted);
+}
+
+.footer-developer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.88rem;
+}
+
+.legal-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.legal-link:hover {
+    color: var(--accent-primary);
+}
+
+.legal-sep {
+    color: rgba(255, 255, 255, 0.2);
 }
 
 .footer-socials {
